@@ -13,7 +13,7 @@ https.get(url,(res) => {
 
     res.on("end", () => {
         try {
-            let data = JSON.parse(body);
+            const data = JSON.parse(body);
             const obj_years = country_data( COUNTRY, data )[ 0 ];
 			const populationInYear = obj_years[ year_on( YEAR ) ];
 			console.log( populationInYear );        
