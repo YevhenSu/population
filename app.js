@@ -1,15 +1,11 @@
 const data = require( "./population-figures-by-country-csv_json" );
+const year_on = require( "./functions/year_on" );
+const country_data = require( "./functions/country_data" );
 
 const COUNTRY = "Ukraine";
 const YEAR = "2016";
 
-const year_on = year => "Year_" + year;
-
-const country_data = country => data.filter( x => x["Country"] == country );
-//console.log( country_data( COUNTRY ) );
-
-const obj_years = country_data( COUNTRY )[ 0 ];
-//console.log( obj_years );
+const obj_years = country_data( COUNTRY, data )[ 0 ];
 
 const populationInYear = obj_years[ year_on( YEAR ) ];
 console.log( populationInYear );
