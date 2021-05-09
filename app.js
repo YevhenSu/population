@@ -1,8 +1,12 @@
+const process = require('process');
 const https = require( 'https' );
 
 const year_on = require( "./functions/year_on" );
 const country_data = require( "./functions/country_data" );
-const { COUNTRY, YEAR, url } = require( "./config" );
+const { url } = require( "./config" );
+
+const COUNTRY = process.argv[ 2 ];
+const YEAR = process.argv[ 3 ];
 
 https.get( url, ( res ) => {
     let body = "";
@@ -25,4 +29,3 @@ https.get( url, ( res ) => {
 } ).on( "error", ( error ) => {
     console.error( error.message );
 } );
-	
