@@ -1,4 +1,4 @@
-const https = require('https');
+const https = require( 'https' );
 
 const year_on = require( "./functions/year_on" );
 const country_data = require( "./functions/country_data" );
