@@ -20,7 +20,7 @@ https.get( url, ( res ) => {
             const data = JSON.parse( body );
             const obj_years = country_data( COUNTRY, data )[ 0 ];
 			const populationInYear = obj_years[ year_on( YEAR ) ];
-			console.log( populationInYear );        
+			console.log( `Population in ${ COUNTRY } in ${ YEAR }: ${ populationInYear }` );        
 		} catch ( error ) {
             console.error( error.message );
         };
