@@ -3,10 +3,10 @@ const https = require( 'https' );
 
 const year_on = require( "./functions/year_on" );
 const country_data = require( "./functions/country_data" );
-const { url } = require( "./config" );
+const { COUNTRY_DEFAULT, YEAR_DEFAULT, url } = require( "./config" );
 
-const COUNTRY = process.argv[ 2 ];
-const YEAR = process.argv[ 3 ];
+const country = process.argv[ 2 ] ? process.argv[ 2 ] : COUNTRY_DEFAULT;
+const year = process.argv[ 3 ] ? process.argv[ 3 ] : YEAR_DEFAULT;
 
 https.get( url, ( res ) => {
     let body = "";
@@ -18,9 +18,9 @@ https.get( url, ( res ) => {
     res.on( "end", () => {
         try {
             const data = JSON.parse( body );
-            const obj_years = country_data( COUNTRY, data )[ 0 ];
-			const population_in_year = obj_years[ year_on( YEAR ) ];
-			console.log( `Population in ${ COUNTRY } in ${ YEAR }: ${ population_in_year }` );        
+            const obj_years = country_data( country, data )[ 0 ];
+			const population_in_year = obj_years[ year_on( year ) ];
+			console.log( `Population in ${ country } in ${ year }: ${ population_in_year }` );        
 		} catch ( error ) {
             console.error( error.message );
         };
