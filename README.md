@@ -1,4 +1,4 @@
-## World population app 
+## World population cli app 
 # Population of the countries of the world from 1960 to 2016
 Example 1: $> node app.js Ukraine 2016  
 Example 2: $> node app.js "Russian Federation" 2010  
