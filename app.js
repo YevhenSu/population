@@ -6,8 +6,9 @@ const { country_data, is_country } = require( "./functions/country_data" );
 const { COUNTRY_DEFAULT, YEAR_DEFAULT, url } = require( "./config" );
 
 const proc = process.argv;
+const COUNTRY_INPUT = proc[ 2 ];
 
-let country = ( proc[ 2 ] ) ? proc[ 2 ] : COUNTRY_DEFAULT;
+let country = ( COUNTRY_INPUT ) ? COUNTRY_INPUT : COUNTRY_DEFAULT;
 const year = ( proc[ 3 ] >= 1960 && proc[ 3 ] <= 2016 ) ? proc[ 3 ] : YEAR_DEFAULT;
 
 https.get( url, ( res ) => {
