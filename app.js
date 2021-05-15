@@ -5,9 +5,8 @@ const year_on = require( "./functions/year_on" );
 const { country_data, is_country } = require( "./functions/country_data" );
 const { COUNTRY_DEFAULT, YEAR_DEFAULT, url } = require( "./config" );
 
-const proc = process.argv;
-const COUNTRY_INPUT = proc[ 2 ];
-const YEAR_INPUT = proc[ 3 ];
+const COUNTRY_INPUT = process.argv[ 2 ];
+const YEAR_INPUT = process.argv[ 3 ];
 
 let country = ( COUNTRY_INPUT ) ? COUNTRY_INPUT : COUNTRY_DEFAULT;
 const year = ( YEAR_INPUT >= 1960 && YEAR_INPUT <= 2016 ) ? YEAR_INPUT : YEAR_DEFAULT;
