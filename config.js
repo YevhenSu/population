@@ -2,5 +2,7 @@ const url = "https://pkgstore.datahub.io/JohnSnowLabs/population-figures-by-coun
 
 const COUNTRY_DEFAULT ="Ukraine";
 const YEAR_DEFAULT = 2016;
+const YEAR_START = 1960;
+const YEAR_END = 2016;
 
-module.exports = { COUNTRY_DEFAULT, YEAR_DEFAULT, url };
+module.exports = { COUNTRY_DEFAULT, YEAR_DEFAULT, url, YEAR_START, YEAR_END };

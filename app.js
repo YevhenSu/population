@@ -3,13 +3,13 @@ const https = require( 'https' );
 
 const year_on = require( "./functions/year_on" );
 const { country_data, is_country } = require( "./functions/country_data" );
-const { COUNTRY_DEFAULT, YEAR_DEFAULT, url } = require( "./config" );
+const { COUNTRY_DEFAULT, YEAR_DEFAULT, url, YEAR_START, YEAR_END } = require( "./config" );
 
 const COUNTRY_INPUT = process.argv[ 2 ];
 const YEAR_INPUT = process.argv[ 3 ];
 
 let country = ( COUNTRY_INPUT ) ? COUNTRY_INPUT : COUNTRY_DEFAULT;
-const year = ( YEAR_INPUT >= 1960 && YEAR_INPUT <= 2016 ) ? YEAR_INPUT : YEAR_DEFAULT;
+const year = ( YEAR_INPUT >= YEAR_START && YEAR_INPUT <= YEAR_END ) ? YEAR_INPUT : YEAR_DEFAULT;
 
 https.get( url, ( res ) => {
 	let body = "";
