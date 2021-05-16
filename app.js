@@ -7,7 +7,7 @@ const { COUNTRY_DEFAULT, YEAR_DEFAULT, url, YEAR_START, YEAR_END } = require( ".
 const COUNTRY_INPUT = process.argv[ 2 ];
 const YEAR_INPUT = process.argv[ 3 ];
 
-let country = ( COUNTRY_INPUT ) ? COUNTRY_INPUT : COUNTRY_DEFAULT;
+const country = ( COUNTRY_INPUT ) ? COUNTRY_INPUT : COUNTRY_DEFAULT;
 const year = ( YEAR_INPUT >= YEAR_START && YEAR_INPUT <= YEAR_END ) ? YEAR_INPUT : YEAR_DEFAULT;
 
 https.get( url, ( res ) => {
@@ -20,8 +20,8 @@ https.get( url, ( res ) => {
 	res.on( "end", () => {
 		try {
 			const data = JSON.parse( body );
-			country = is_country( country, data ) ? country : COUNTRY_DEFAULT;
-			const obj_years_all = country_data( country, data );
+			const country_checked = is_country( country, data ) ? country : COUNTRY_DEFAULT;
+			const obj_years_all = country_data( country_checked, data );
 			const obj_years = obj_years_all[ 0 ];
 			const key = year_on( year );
 			const population_in_year = obj_years[ key ];
