@@ -1,8 +1,7 @@
 const process = require('process');
 const https = require( 'https' );
 
-const year_on = require( "./functions/year_on" );
-const { country_data, is_country } = require( "./functions/country_data" );
+const { country_data, is_country, year_on  } = require( "./functions" );
 const { COUNTRY_DEFAULT, YEAR_DEFAULT, url, YEAR_START, YEAR_END } = require( "./config" );
 
 const COUNTRY_INPUT = process.argv[ 2 ];
