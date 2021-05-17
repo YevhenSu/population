@@ -25,14 +25,14 @@ https.get( url, ( res ) => {
 
 	res.on( "end", () => {
 		try {
+			const data = JSON.parse( body );
 			const COUNTRY_INPUT = process.argv[ 2 ];
 			const YEAR_INPUT = process.argv[ 3 ];
 
-			const predicate_country = COUNTRY_INPUT;
+			const predicate_country = is_country( COUNTRY_INPUT, data );
 			const country = verify_to( predicate_country, COUNTRY_INPUT, COUNTRY_DEFAULT );
 			const predicate_year = YEAR_INPUT >= YEAR_START && YEAR_INPUT <= YEAR_END;
 			const year = verify_to( predicate_year, YEAR_INPUT, YEAR_DEFAULT );
-			const data = JSON.parse( body );
 			const obj_years_all = country_data( country, data );
 			const obj_years = obj_years_all[ 0 ];
 			const key = year_on( year );
