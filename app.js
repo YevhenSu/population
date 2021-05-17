@@ -1,8 +1,19 @@
 const process = require('process');
 const https = require( 'https' );
 
-const { country_data, is_country, year_on, verify_to } = require( "./functions" );
-const { COUNTRY_DEFAULT, YEAR_DEFAULT, url, YEAR_START, YEAR_END } = require( "./config" );
+const { 
+	country_data, 
+	is_country, 
+	year_on, 
+	verify_to 
+} = require( "./functions" );
+
+const { 
+	COUNTRY_DEFAULT, 
+	YEAR_DEFAULT, url, 
+	YEAR_START, 
+	YEAR_END 
+} = require( "./config" );
 
 https.get( url, ( res ) => {
 	
