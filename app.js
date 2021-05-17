@@ -1,7 +1,7 @@
 const process = require('process');
 const https = require( 'https' );
 
-const { country_data, is_country, year_on  } = require( "./functions" );
+const { country_data, is_country, year_on, verify_to } = require( "./functions" );
 const { COUNTRY_DEFAULT, YEAR_DEFAULT, url, YEAR_START, YEAR_END } = require( "./config" );
 
 https.get( url, ( res ) => {
@@ -17,8 +17,10 @@ https.get( url, ( res ) => {
 			const COUNTRY_INPUT = process.argv[ 2 ];
 			const YEAR_INPUT = process.argv[ 3 ];
 
-			const country = ( COUNTRY_INPUT ) ? COUNTRY_INPUT : COUNTRY_DEFAULT;
-			const year = ( YEAR_INPUT >= YEAR_START && YEAR_INPUT <= YEAR_END ) ? YEAR_INPUT : YEAR_DEFAULT;
+			const predicate_country = COUNTRY_INPUT;
+			const country = verify_to( predicate_country, COUNTRY_INPUT, COUNTRY_DEFAULT );
+			const predicate_year = YEAR_INPUT >= YEAR_START && YEAR_INPUT <= YEAR_END;
+			const year = verify_to( predicate_year, YEAR_INPUT, YEAR_DEFAULT );
 			const data = JSON.parse( body );
 			const obj_years_all = country_data( country, data );
 			const obj_years = obj_years_all[ 0 ];
