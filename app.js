@@ -15,7 +15,7 @@ const {
 	YEAR_END 
 } = require( "./config" );
 
-https.get( URL_API, ( res ) => {
+const callback = ( res ) => {
 	
 	let body = "";
 
@@ -44,6 +44,8 @@ https.get( URL_API, ( res ) => {
 		};
 	} );
 
-} ).on( "error", ( error ) => {
+};
+
+https.get( URL_API, callback ).on( "error", ( error ) => {
 	console.error( error.message );
 } );
