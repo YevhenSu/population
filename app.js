@@ -10,12 +10,12 @@ const {
 
 const { 
 	COUNTRY_DEFAULT, 
-	YEAR_DEFAULT, url, 
+	YEAR_DEFAULT, URL_API, 
 	YEAR_START, 
 	YEAR_END 
 } = require( "./config" );
 
-https.get( url, ( res ) => {
+https.get( URL_API, ( res ) => {
 	
 	let body = "";
 
