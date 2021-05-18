@@ -37,7 +37,8 @@ https.get( URL_API, ( res ) => {
 			const obj_years = obj_years_all[ 0 ];
 			const key = year_on( year );
 			const population_in_year = obj_years[ key ];
-			console.log( `Population in ${ country } in ${ year }: ${ population_in_year }` );        
+			const output_to = `Population in ${ country } in ${ year }: ${ population_in_year }`;        
+			console.log( output_to );        
 		} catch ( error ) {
 			console.error( error.message );
 		};
