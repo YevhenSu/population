@@ -16,41 +16,21 @@ str_France_2=`node app.js France 2`
 assert_France_2="Population in France in 2016: 66896109"
 
 
-if [ "$str_default" == "$assert_default" ]
-then 
-	echo ""
-else 
-	echo "!!!!!assert_default test do not passed!!!!!"
-fi
+function test() {
+	if [ "$1" == "$2" ]
+	then 
+		echo ""
+	else 
+		echo "!!!!!$2 test do not passed!!!!!"
+	fi
+}
 
+test "$str_default" "$assert_default"
 
-if [ "$str_Ukraine" == "$assert_Ukraine" ]
-then 
-	echo ""
-else 
-	echo "!!!!!assert_Ukraine test do not passed!!!!!"
-fi
+test "$str_Ukraine" "$assert_Ukraine"
 
+test "$str_Ukraine_2016" "$assert_Ukraine_2016"
 
-if [ "$str_Ukraine_2016" == "$assert_Ukraine_2016" ]
-then 
-	echo ""
-else 
-	echo "!!!!!assert_Ukraine_2016 test do not passed!!!!!"
-fi
+test "$str_Fran" "$assert_Fran"
 
-
-if [ "$str_Fran" == "$assert_Fran" ]
-then 
-	echo ""
-else 
-	echo "!!!!!assert_Fran test do not passed!!!!!"
-fi
-
-
-if [ "$str_France_2" == "$assert_France_2" ]
-then 
-	echo ""
-else 
-	echo "!!!!!assert_France_2 test do not passed!!!!!"
-fi
+test "$str_France_2" "$assert_France_2"
