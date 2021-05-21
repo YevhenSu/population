@@ -1,4 +1,4 @@
-#! /etc/bash
+#! /bin/bash
 
 str_default=`node app.js`
 assert_default="Population in Ukraine in 2016: 45004645"
