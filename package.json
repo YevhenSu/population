@@ -2,6 +2,14 @@
   "name": "population_app",
   "version": "0.0.1",
   "description": "Application for displaying the population of the countries of the world in 1960-2016",
+  "keywords": [
+  	"population",
+	"world",
+	"country",
+	"country population",
+	"world countries population",
+	"world countries population 1960-2016"
+  ],
   "main": "app.js",
   "scripts": {
     "start": "node ./app.js",
@@ -11,6 +19,6 @@
     "type": "git",
     "url": "git@github.com:YevhenSu/population.git"
   },
-  "author": "Yevhen Susidka",
+  "author": "Yevhen Susidka <susidka.yevhen@gmail.com>",
   "license": "MIT"
 }
