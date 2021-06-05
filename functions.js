@@ -1,5 +1,8 @@
-const is_country = ( country, data ) => data.some( obj => obj["Country"] == country );
-const country_data = ( country, data ) => data.filter( obj => ( obj["Country"] === country ) );
+const country_generic = method => ( country, data ) => data[ method ]( obj => obj["Country"] === country );
+
+const is_country = country_generic( 'some' );
+
+const country_data = country_generic( 'filter' );
 
 const year_on = year => "Year_" + year;
 
