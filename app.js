@@ -10,7 +10,8 @@ const {
 
 const { 
 	COUNTRY_DEFAULT, 
-	YEAR_DEFAULT, URL_API, 
+	YEAR_DEFAULT, 
+	URL_API, 
 	YEAR_START, 
 	YEAR_END 
 } = require( "./config" );
@@ -46,6 +47,9 @@ const callback = ( res ) => {
 
 };
 
-https.get( URL_API, callback ).on( "error", ( error ) => {
+https.get( 
+	URL_API, 
+	callback 
+).on( "error", ( error ) => {
 	console.error( error.message );
 } );
