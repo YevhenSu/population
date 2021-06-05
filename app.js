@@ -16,6 +16,9 @@ const {
 	YEAR_END 
 } = require( "./config" );
 
+const COUNTRY_INPUT = process.argv[ 2 ];
+const YEAR_INPUT = process.argv[ 3 ];
+
 const callback = ( res ) => {
 	
 	let body = "";
@@ -27,8 +30,6 @@ const callback = ( res ) => {
 	res.on( "end", () => {
 		try {
 			const data = JSON.parse( body );
-			const COUNTRY_INPUT = process.argv[ 2 ];
-			const YEAR_INPUT = process.argv[ 3 ];
 
 			const predicate_country = is_country( COUNTRY_INPUT, data );
 			const country = verify_to( predicate_country, COUNTRY_INPUT, COUNTRY_DEFAULT );
