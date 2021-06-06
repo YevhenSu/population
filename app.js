@@ -5,7 +5,8 @@ const {
 	country_data, 
 	is_country, 
 	year_on, 
-	verify_to 
+	verify_to,
+	processed_to
 } = require( "./functions" );
 
 const { 
@@ -33,15 +34,13 @@ const callback = ( res ) => {
 
 	res.on( "end", () => {
 		try {
-			const data = JSON.parse( body );
-
-			const predicate_country = is_country( COUNTRY_INPUT, data );
-			const country = verify_to( predicate_country, COUNTRY_INPUT, COUNTRY_DEFAULT );
-			const arr_obj_years = country_data( country, data );
-			const obj_years = arr_obj_years[ 0 ];
-			const population_in_year = obj_years[ key ];
-			const output_to = `Population in ${ country } in ${ year }: ${ population_in_year }`;        
-			console.log( output_to );        
+			processed_to( 
+				body, 
+				COUNTRY_INPUT, 
+				COUNTRY_DEFAULT, 
+				key, 
+				year 
+			);        
 		} catch ( error ) {
 			console.error( error.message );
 		};
