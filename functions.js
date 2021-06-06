@@ -8,7 +8,15 @@ const year_on = year => "Year_" + year;
 
 const verify_to = ( predicate, true_if, default_ ) => predicate ? true_if : default_;
 
-function processed_to( body, country_input, country_default, key, year ) {
+const log = data => console.log( data );
+
+function processed_to( 
+	body, 
+	country_input, 
+	country_default, 
+	key, 
+	year 
+) {
 	const data = JSON.parse( body );
 
 	const predicate_country = is_country( country_input, data );
@@ -17,15 +25,17 @@ function processed_to( body, country_input, country_default, key, year ) {
 	const obj_years = arr_obj_years[ 0 ];
 	const population_in_year = obj_years[ key ];
 	const output_to = `Population in ${ country } in ${ year }: ${ population_in_year }`;        
-	console.log( output_to );
+	return output_to;
 }
+
 
 module.exports = { 
 	country_data, 
 	is_country, 
 	year_on,
 	verify_to,
-	processed_to
+	processed_to,
+	log
 };
 
 

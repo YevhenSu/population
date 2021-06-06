@@ -6,7 +6,8 @@ const {
 	is_country, 
 	year_on, 
 	verify_to,
-	processed_to
+	processed_to,
+	log
 } = require( "./functions" );
 
 const { 
@@ -34,13 +35,14 @@ const callback = ( res ) => {
 
 	res.on( "end", () => {
 		try {
-			processed_to( 
+			const output = processed_to( 
 				body, 
 				COUNTRY_INPUT, 
 				COUNTRY_DEFAULT, 
 				key, 
 				year 
 			);        
+			log( output );
 		} catch ( error ) {
 			console.error( error.message );
 		};
